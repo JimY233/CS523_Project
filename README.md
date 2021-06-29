@@ -34,7 +34,7 @@ Outside all the folder,
 
 Under `experiment_?` folder, there are related jupyter notebook to show the experiment result
 
-### Dataset
+### Dataset  
 FER2013  
 Classify facial expressions from 35,685 examples of 48x48 pixel grayscale images of faces. Images are categorized based on the emotion shown in the facial expressions (happiness, neutral, sadness, anger, surprise, disgust, fear). It can be divided to training set, privacy testing set(validation set) and public testing set(testing set).  
 
@@ -42,8 +42,8 @@ emotion_mapping = {0: 'Angry', 1: 'Disgust', 2: 'Fear', 3: 'Happy', 4: 'Sad', 5:
 
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/FER2013happy.PNG"/></div>
 
-### Architecure
-In the experiment, we followed the referenced code to reproduce the result.
+### Architecure  
+In the experiment, we followed the referenced code to reproduce the result.  
 
 VGG varient:  
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/architecture.PNG"/></div>  
@@ -66,7 +66,7 @@ We tried several times and derive 72.0% and 72.1%. It seems the accuracy changes
 Furthermore, the paper used another 50 epoches for fine tuning
 Fine tuning used Cosine Annealing (Cosine) scheduler with a initial learning rate of 0.0001
 
-### Code details
+### Code details  
 
 **Dropout**  
 We use   
@@ -83,7 +83,7 @@ class Vgg(VggFeatures):
 ```
 to define the model and define the dropout rate inside.  
 
-**Data Augmentation**  
+**Data Augmentation**   
 ```
 train_transform = transforms.Compose([
             transforms.RandomResizedCrop(48, scale=(0.8, 1.2)),
@@ -103,7 +103,7 @@ This augmentation includes rescaling the images up to ± 20 % of its original sc
 Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses
 
 **architecture**  
-Under `experiment_architecture` folder,  
+Under `experiment_architecture` folder  
 we tried 100 epoch on efficientnetb3, vgg16, resnet50    
 vgg16: 70.24%    
 resnet50: 70.88%    
@@ -111,20 +111,20 @@ efn: 69.18%
 As a result, vgg varient proposed by this paper works well.   
 
 **optimizer**    
-Under `experiment_optimizer` folder,  
+Under `experiment_optimizer` folder  
 we tried 100 epoch on vgg varient proposed by the paper referenced with different optimzer: SGD, SGD with Nesterov Momentum, Average SGD, Adam, Adam with AMSGrad, Adadelta, and Adagrad.  
 We run two secenerios: one is fixed learning rate, the other is with RLRP learning rate scheduler  
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/optimizer.PNG"/></div>
 As a result, SGD with Nesterov Momentum works the best as the paper shows  
 
 **scheduler**    
-Under `experiment_scheduler` folder,
+Under `experiment_scheduler` folder  
 We also tried 100 epoch on vgg varient with different learning rate scheduler: Reduce Learning Rate on Plateau (RLRP),Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR), One Cycle Learning Rate (OneCycleLR), and Step Learning Rate(StepLR)   
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/scheduler.PNG"/></div>
 The result shows RLRP works the best
 
-**Fine tuning**
-Under `experiment_finetuning` and `experiment_dropoutrate` folder,  
+**Fine tuning**  
+Under `experiment_finetuning` and `experiment_dropoutrate` folder  
 After trainint 300 epoches, we examed another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.
 This result is not quite good since I guess the result is already kind of overfitting for dropout rate 0.2
 Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4
