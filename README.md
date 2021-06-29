@@ -6,7 +6,9 @@ Slice:
 
 ## Introduction
 This project aims to explore facial emotion recognition. Facial emotion recognition refers to identifying expressions that convey basic emotions, which is quite important for computer to understand human beings. FER has broad research prospects in human-computer interaction and emotional computing, including human-computer interaction, emotion analysis, intelligent security, entertainment, online education, intelligent medical care, etc. For example, it can be used to conduct market research for companies and obtain users' feedback to test video games.   
+
 However, accurate and robust FERby computer models remains challenging due to theheterogeneity of human faces and variations inimages such as different facial pose and lighting. Among all techniques for FER, deep learning models, especially Convolutional Neural Networks (CNNs) have shown great potential due to their powerful automatic feature extraction and computational efficiency.   
+
 Therefore, we decided to reproduce a paper result to  achieves state-of-theart single-network accuracy of 73.28 % on FER2013 without using extra training data.   
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/ranking.PNG"/></div>
 
