@@ -97,37 +97,37 @@ train_transform = transforms.Compose([
             transforms.Lambda(lambda tensors: torch.stack([transforms.RandomErasing(p=0.5)(t) for t in tensors])),
         ])
 ```
-This augmentation includes rescaling the images up to ± 20 % of its original scale, horizontally and vertically shifting the image by up to  ± 20 % of its size, and rotating it up to ± 10 degrees.  Each of the techniques is applied randomly and with a probability of 50 %.  
+This augmentation includes rescaling the images up to ± 20 % of its original scale, horizontally and vertically shifting the image by up to  ± 20 % of its size, and rotating it up to ± 10 degrees.  Each of the techniques is applied randomly and with a probability of 50 %.    
 
 ### Experiment  
-Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses
+Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses  
 
 **architecture**  
-Under `experiment_architecture` folder  
-we tried 100 epoch on efficientnetb3, vgg16, resnet50    
+Under `experiment_architecture` folder    
+we tried 100 epoch on efficientnetb3, vgg16, resnet50      
 vgg16: 70.24%    
 resnet50: 70.88%    
 efn: 69.18%    
 As a result, vgg varient proposed by this paper works well.   
 
 **optimizer**    
-Under `experiment_optimizer` folder  
-we tried 100 epoch on vgg varient proposed by the paper referenced with different optimzer: SGD, SGD with Nesterov Momentum, Average SGD, Adam, Adam with AMSGrad, Adadelta, and Adagrad.  
-We run two secenerios: one is fixed learning rate, the other is with RLRP learning rate scheduler  
-<div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/optimizer.PNG"/></div>
-As a result, SGD with Nesterov Momentum works the best as the paper shows  
+Under `experiment_optimizer` folder   
+we tried 100 epoch on vgg varient proposed by the paper referenced with different optimzer: SGD, SGD with Nesterov Momentum, Average SGD, Adam, Adam with AMSGrad, Adadelta, and Adagrad.   
+We run two secenerios: one is fixed learning rate, the other is with RLRP learning rate scheduler    
+<div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/optimizer.PNG"/></div>  
+As a result, SGD with Nesterov Momentum works the best as the paper shows    
 
 **scheduler**    
-Under `experiment_scheduler` folder  
-We also tried 100 epoch on vgg varient with different learning rate scheduler: Reduce Learning Rate on Plateau (RLRP),Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR), One Cycle Learning Rate (OneCycleLR), and Step Learning Rate(StepLR)   
-<div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/scheduler.PNG"/></div>
-The result shows RLRP works the best
+Under `experiment_scheduler` folder    
+We also tried 100 epoch on vgg varient with different learning rate scheduler: Reduce Learning Rate on Plateau (RLRP),Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR), One Cycle Learning Rate (OneCycleLR), and Step Learning Rate(StepLR)     
+<div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/scheduler.PNG"/></div>  
+The result shows RLRP works the best  
 
 **Fine tuning**  
-Under `experiment_finetuning` and `experiment_dropoutrate` folder  
-After trainint 300 epoches, we examed another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.
-This result is not quite good since I guess the result is already kind of overfitting for dropout rate 0.2
-Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4
+Under `experiment_finetuning` and `experiment_dropoutrate` folder    
+After trainint 300 epoches, we examed another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.  
+This result is not quite good since I guess the result is already kind of overfitting for dropout rate 0.2  
+Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4  
 
 ## Demo  
 
