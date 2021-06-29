@@ -14,7 +14,8 @@ The code referenced is all in py files and we reorganized the code in jupyter no
 ### Code organization
 
 ### Dataset
-FER2013
+FER2013  
+Classify facial expressions from 35,685 examples of 48x48 pixel grayscale images of faces. Images are categorized based on the emotion shown in the facial expressions (happiness, neutral, sadness, anger, surprise, disgust, fear).  
 
 ### Code details
 In the experiment, we followed the referenced code to reproduce the result.
