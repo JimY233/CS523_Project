@@ -17,7 +17,7 @@ The code referenced is all in py files and we reorganized the code in jupyter no
 FER2013  
 Classify facial expressions from 35,685 examples of 48x48 pixel grayscale images of faces. Images are categorized based on the emotion shown in the facial expressions (happiness, neutral, sadness, anger, surprise, disgust, fear).  
 
-### Code details
+### Architecture
 In the experiment, we followed the referenced code to reproduce the result.
 
 VGG varient:  
@@ -36,6 +36,8 @@ We tried several times and derive 71.5% and 72.2%. It seems the accuracy changes
  
 Furthermore, the paper used another 50 epoches for fine tuning
 Fine tuning used Cosine Annealing (Cosine) scheduler with a initial learning rate of 0.0001
+
+### Code details
 
 ### Experiment
 Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses
