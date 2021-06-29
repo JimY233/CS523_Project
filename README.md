@@ -1,6 +1,6 @@
 # CS523_Project
 Jiaming Yu U72316560 jiamingy@bu.edu  
-Tengzi Zhao    
+Tengzi Zhao          tengzi@bu.edu 
 
 Slice:   
 
