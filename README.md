@@ -114,14 +114,14 @@ This augmentation includes rescaling the images up to ± 20 % of its original sc
 
 ### Experiment  
 Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses  
-<\br>
+
 **architecture**  
 Under `experiment_architecture` folder    
 we tried 100 epoch on efficientnetb3, vgg16, resnet50      
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/experiment_architecture.PNG"/></div>  
 As a result, vgg varient proposed by this paper works well.   
 
-<\br>
+
 **optimizer**    
 Under `experiment_optimizer` folder   
 we tried 100 epoch on vgg varient proposed by the paper referenced with different optimzer: SGD, SGD with Nesterov Momentum, Average SGD, Adam, Adam with AMSGrad, Adadelta, and Adagrad.   
@@ -129,14 +129,14 @@ We run two secenerios: one is fixed learning rate, the other is with RLRP learni
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/optimizer.PNG"/></div>  
 As a result, SGD with Nesterov Momentum works the best as the paper shows    
 
-<\br>
+
 **scheduler**    
 Under `experiment_scheduler` folder    
 We also tried 100 epoch on vgg varient with different learning rate scheduler: Reduce Learning Rate on Plateau (RLRP),Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR), One Cycle Learning Rate (OneCycleLR), and Step Learning Rate(StepLR)     
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/scheduler.PNG"/></div>  
 The result shows RLRP works the best  
 
-<\br>
+
 **Fine tuning and Dropout**  
 Under `experiment_finetuning` and `experiment_dropoutrate` folder    
 After train 300 epoches, we train another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.  
