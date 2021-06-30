@@ -51,7 +51,7 @@ VGG varient:
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/architecture.PNG"/></div>  
 The network consists of 4 convolutional stages and 3 fully connected layers. Each of the convolutional stages contains two convolutional blocks and a max-pooling layer. The convolution block consists of a convolutional layer, a ReLU activation, and a batch normalization layer. Batch normalization is used here to speed up the learning process, reduce the internal covariance shift, and prevent gradient vanishing or explosion. The first two fully connected layers are followed by a ReLU activation. The third fully connected layer is for classification. The convolutional stages are responsible for feature extraction, dimension reduction, and non-linearity. The fully connected layers are trained to classify the inputs as described by extracted features.
 
-Thus the difference between this model and vgg is the number of the layers.
+Thus the difference between this model and vgg is the number of the layers. Standard VGG has 5 convolutional stages while this model has 4 convolutional stages.
 
 Loss: cross-entropy loss
 
