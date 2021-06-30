@@ -38,7 +38,11 @@ Outside all the folder,
 `myvgg_evaluate.ipynb` evaluates the test accuracy on several epoches of `myvgg.ipynb` and thus we find that the result is kind of overfitting. The result on 160 epochs achieves 72.4% accuracy. Therefore, when we fine tuning another 50 epochs 
 `myvgg_demo.ipynb` derives the top-1 accuracy, top-2 accuracy, confusion matrix and saliency map of `myvgg.ipynb` on 300 epoches with 72.1%
 
-Under `experiment_?` folder, there are related jupyter notebook to show the experiment result
+Under `experiment_optimizer` folder, we experiment on the influence of choice of optimizer  
+Under `experiment_scheduler` folder, we experiment on the influence of choice of learning rate scheduler
+Under `experiment_finetuning` folder, we experiment on the influence of fine tuning: train another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR)
+Under `experiment_dropoutrate` folder, we experiment on dropout rate 0.3,0.4.0.5 on the effect of fine tuning
+Under `experiment_architecture` folder, we experiment on efficientnetb3, resnet50, vgg16 and vgg varient
 
 ### Dataset  
 FER2013  
@@ -49,6 +53,8 @@ emotion_mapping = {0: 'Angry', 1: 'Disgust', 2: 'Fear', 3: 'Happy', 4: 'Sad', 5:
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/FER2013happy.PNG"/></div>
 
 The training set consists of 28,709 examples. The public test set consists of 3,589 examples. The private test set consists of another 3,589 examples.
+
+To run the code here, please create a folder `datasets/fer3013` and put `fer2013.csv` inside. I.e. The path to the dataset is `datasets/fer2013/fer2013.csv` or you can change the path in the code `get_dataloaders(path='datasets/fer2013/fer2013.csv', bs=64, augment=True)` function  
 
 ### Architecure  
 In the experiment, we followed the referenced code to reproduce the result.  
@@ -108,15 +114,14 @@ This augmentation includes rescaling the images up to ± 20 % of its original sc
 
 ### Experiment  
 Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses  
-
-
+<\br>
 **architecture**  
 Under `experiment_architecture` folder    
 we tried 100 epoch on efficientnetb3, vgg16, resnet50      
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/experiment_architecture.PNG"/></div>  
 As a result, vgg varient proposed by this paper works well.   
 
-
+<\br>
 **optimizer**    
 Under `experiment_optimizer` folder   
 we tried 100 epoch on vgg varient proposed by the paper referenced with different optimzer: SGD, SGD with Nesterov Momentum, Average SGD, Adam, Adam with AMSGrad, Adadelta, and Adagrad.   
@@ -124,23 +129,24 @@ We run two secenerios: one is fixed learning rate, the other is with RLRP learni
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/optimizer.PNG"/></div>  
 As a result, SGD with Nesterov Momentum works the best as the paper shows    
 
-
+<\br>
 **scheduler**    
 Under `experiment_scheduler` folder    
 We also tried 100 epoch on vgg varient with different learning rate scheduler: Reduce Learning Rate on Plateau (RLRP),Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR), One Cycle Learning Rate (OneCycleLR), and Step Learning Rate(StepLR)     
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/scheduler.PNG"/></div>  
 The result shows RLRP works the best  
 
-
+<\br>
 **Fine tuning and Dropout**  
 Under `experiment_finetuning` and `experiment_dropoutrate` folder    
-After trainint 300 epoches, we examed another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.  
+After train 300 epoches, we train another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.  
 This result is not quite good since I guess the result is already kind of overfitting for dropout rate 0.2  
 Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4 
 
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/experiment_finetuning%26dropout.PNG"/></div>  
 
 ## Demo  
+Under `demo` folder
 
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/Confusion_Matrix.png"/></div>
 Therefore, we can find the model works better on Happy and Surprise target. This is because data imbalance. There are more happy and surprise images in FER2013 dataset.
