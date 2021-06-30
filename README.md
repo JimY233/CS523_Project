@@ -2,10 +2,10 @@
 Jiaming Yu U72316560 jiamingy@bu.edu  
 Tengzi Zhao          tengzi@bu.edu 
 
-Slice:   https://drive.google.com/file/d/1k_9wwNmFfgwszCPKtRJVRwtwlYPvSpz1/view?usp=sharing
+Slice:   https://drive.google.com/file/d/1k_9wwNmFfgwszCPKtRJVRwtwlYPvSpz1/view?usp=sharing  
 Or you can also see it in github: https://github.com/JimY233/CS523_Project/blob/main/Facial%20Emotion%20Recognition%20on%20FER2013.pptx
 
-Checkpoints: https://drive.google.com/drive/folders/15tRRYTLlbrdhsmzgfBG9_foL31nIaa-O?usp=sharing
+Checkpoints: https://drive.google.com/drive/folders/15tRRYTLlbrdhsmzgfBG9_foL31nIaa-O?usp=sharing  
 epoch_300 achieves 72.1% and epoch_160 achieves 72.4%
 
 ## Introduction
