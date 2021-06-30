@@ -2,7 +2,7 @@
 Jiaming Yu U72316560 jiamingy@bu.edu  
 Tengzi Zhao          tengzi@bu.edu 
 
-Slice:   
+Slice:   https://drive.google.com/file/d/1k_9wwNmFfgwszCPKtRJVRwtwlYPvSpz1/view?usp=sharing
 
 ## Introduction
 This project aims to explore facial emotion recognition. Facial emotion recognition refers to identifying expressions that convey basic emotions, which is quite important for computer to understand human beings. FER has broad research prospects in human-computer interaction and emotional computing, including human-computer interaction, emotion analysis, intelligent security, entertainment, online education, intelligent medical care, etc. For example, it can be used to conduct market research for companies and obtain users' feedback to test video games.   
