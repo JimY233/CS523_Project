@@ -141,7 +141,7 @@ The result shows RLRP works the best
 
 **Fine tuning and Dropout**  
 Under `experiment_finetuning` and `experiment_dropoutrate` folder    
-After train 300 epoches, we train another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.  
+After train 300 epoches, we train another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train. We choose these two scheduler since both of these schedulers slowly oscillate the learning rate back and forth thus not allowing for major weight changes.  
 This result is not quite good since I guess the result is already kind of overfitting for dropout rate 0.2  
 Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4 
 
