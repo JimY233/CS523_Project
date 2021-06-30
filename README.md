@@ -3,6 +3,10 @@ Jiaming Yu U72316560 jiamingy@bu.edu
 Tengzi Zhao          tengzi@bu.edu 
 
 Slice:   https://drive.google.com/file/d/1k_9wwNmFfgwszCPKtRJVRwtwlYPvSpz1/view?usp=sharing
+Or you can also see it in github: https://github.com/JimY233/CS523_Project/blob/main/Facial%20Emotion%20Recognition%20on%20FER2013.pptx
+
+Checkpoints: https://drive.google.com/drive/folders/15tRRYTLlbrdhsmzgfBG9_foL31nIaa-O?usp=sharing
+epoch_300 achieves 72.1% and epoch_160 achieves 72.4%
 
 ## Introduction
 This project aims to explore facial emotion recognition. Facial emotion recognition refers to identifying expressions that convey basic emotions, which is quite important for computer to understand human beings. FER has broad research prospects in human-computer interaction and emotional computing, including human-computer interaction, emotion analysis, intelligent security, entertainment, online education, intelligent medical care, etc. For example, it can be used to conduct market research for companies and obtain users' feedback to test video games.   
