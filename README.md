@@ -26,11 +26,11 @@ Therefore, we also experiment on dropout rate. And the fine tuning result of dro
 https://github.com/usef-kh/fer  
 
 ### Our modification on the code
-The code referenced is all in py files and we **reorganized** the code in jupyter notebook in our github.
-In the related paper, it discusses the influence of optimizer, scheduler, fine tuning part but did not provide with code in Github. **we modify the code to make the experiment on them.**
-Besides, we also **experiment on pre-trained vgg16,resnet50,efficientb3** to compare with the result on a varient of vgg proposed by the paper
-We **explore the dropout rate** with our modified code
-Added `lot_confusion_matrix` function to demo part
+The code referenced is all in py files and we **reorganized** the code in jupyter notebook in our github.  
+In the related paper, it discusses the influence of optimizer, scheduler, fine tuning part but did not provide with code in Github. **we modify the code to make the experiment on them.**  
+Besides, we also **experiment on pre-trained vgg16,resnet50,efficientb3** to compare with the result on a varient of vgg proposed by the paper  
+We **explore the dropout rate** with our modified code  
+Added `lot_confusion_matrix` function to demo part  
 
 ### Code organization
 Outside all the folder,  
