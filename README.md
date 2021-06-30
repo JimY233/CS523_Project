@@ -109,13 +109,13 @@ This augmentation includes rescaling the images up to ± 20 % of its original sc
 ### Experiment  
 Then we set up experiments on architecture, optimizer, scheduler and fine tuning as the paper discusses  
 
+
 **architecture**  
 Under `experiment_architecture` folder    
 we tried 100 epoch on efficientnetb3, vgg16, resnet50      
-vgg16: 70.24%    
-resnet50: 70.88%    
-efn: 69.18%    
+<div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/experiment_architecture.PNG"/></div>  
 As a result, vgg varient proposed by this paper works well.   
+
 
 **optimizer**    
 Under `experiment_optimizer` folder   
@@ -124,17 +124,21 @@ We run two secenerios: one is fixed learning rate, the other is with RLRP learni
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/optimizer.PNG"/></div>  
 As a result, SGD with Nesterov Momentum works the best as the paper shows    
 
+
 **scheduler**    
 Under `experiment_scheduler` folder    
 We also tried 100 epoch on vgg varient with different learning rate scheduler: Reduce Learning Rate on Plateau (RLRP),Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR), One Cycle Learning Rate (OneCycleLR), and Step Learning Rate(StepLR)     
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/scheduler.PNG"/></div>  
 The result shows RLRP works the best  
 
-**Fine tuning**  
+
+**Fine tuning and Dropout**  
 Under `experiment_finetuning` and `experiment_dropoutrate` folder    
 After trainint 300 epoches, we examed another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR) and furthermore used validation data to train.  
 This result is not quite good since I guess the result is already kind of overfitting for dropout rate 0.2  
-Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4  
+Therefore, we also explore the effect of fine tuning when we set the vgg varient drop out rate to be 0.3 and 0.4 
+
+<div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/experiment_finetuning%26dropout.PNG"/></div>  
 
 ## Demo  
 
