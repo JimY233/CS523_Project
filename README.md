@@ -44,6 +44,8 @@ emotion_mapping = {0: 'Angry', 1: 'Disgust', 2: 'Fear', 3: 'Happy', 4: 'Sad', 5:
 
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/FER2013happy.PNG"/></div>
 
+The training set consists of 28,709 examples. The public test set consists of 3,589 examples. The private test set consists of another 3,589 examples.
+
 ### Architecure  
 In the experiment, we followed the referenced code to reproduce the result.  
 
