@@ -35,14 +35,16 @@ Added `plot_confusion_matrix` function to demo part
 ### Code organization
 Outside all the folder,  
 `myvgg.ipynb` and `myvgg_second.ipynb`implements 300 epoches training on vgg varient proposed by the paper referenced. one achieves 72.1% and the other achieves 72.0% 
-`myvgg_evaluate.ipynb` evaluates the test accuracy on several epoches of `myvgg.ipynb` and thus we find that the result is kind of overfitting. The result on 160 epochs achieves 72.4% accuracy. Therefore, when we fine tuning another 50 epochs 
-`myvgg_demo.ipynb` derives the top-1 accuracy, top-2 accuracy, confusion matrix and saliency map of `myvgg.ipynb` on 300 epoches with 72.1%
 
 Under `experiment_optimizer` folder, we experiment on the influence of choice of optimizer  
 Under `experiment_scheduler` folder, we experiment on the influence of choice of learning rate scheduler
 Under `experiment_finetuning` folder, we experiment on the influence of fine tuning: train another 50 epoches using two different scheduler: Cosine Annealing (Cosine), Cosine Annealing with Warm Restarts (CosineWR)
 Under `experiment_dropoutrate` folder, we experiment on dropout rate 0.3,0.4.0.5 on the effect of fine tuning
 Under `experiment_architecture` folder, we experiment on efficientnetb3, resnet50, vgg16 and vgg varient
+
+Under `demo` folder  
+`myvgg_evaluate.ipynb` evaluates the test accuracy on several epoches of `myvgg.ipynb` and thus we find that the result is kind of overfitting. The result on 160 epochs achieves 72.4% accuracy. Therefore, when we fine tuning another 50 epochs   
+`myvgg_demo.ipynb` derives the top-1 accuracy, top-2 accuracy, confusion matrix and saliency map of `myvgg.ipynb` on 72.1% checkpoints after 300 epoches and also on 72.4% checkpoints after 160 epochs
 
 ### Dataset  
 FER2013  
@@ -149,12 +151,15 @@ Therefore, we also explore the effect of fine tuning when we set the vgg varient
 Under `demo` folder
 
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/Confusion_Matrix.png"/></div>
-Therefore, we can find the model works better on Happy and Surprise target. This is because data imbalance. There are more happy and surprise images in FER2013 dataset.
+Therefore, we can find the model works better on Happy and Surprise target. This is because class imbalance. There are more happy and surprise images in FER2013 dataset.
 
-We can also compare it with the confusion matrix in the reproduced paper and they are similiar. The confusion matrix on the paper can be found under `images` folder
+We can also compare it with the confusion matrix in the reproduced paper and they are similiar. The confusion matrix on the paper can be found under `images` folder. Or you can check `demo_comparison.ipynb` 
 
+By propagating the loss back to the pixel values, a saliency map can highlight the pixels which have the most impact on the loss value. It highlights the visual features the CNN can capture from the input  
 <div align=center><img width='600'src="https://github.com/JimY233/CS523_Project/blob/main/images/saliencymap.PNG"/></div>
 This is the saliency map we derived. As we can see, select one image from testloader and the model predicts exactly the same as the ground truth.
+Using saliency map, we can see that the model is placing a large importance on facial features of the person instead of background, hair, hand and so on.
+
 
 ## References  
 Khaireddin, Y., & Chen, Z. (2021). Facial Emotion Recognition: State of the Art Performance on FER2013. arXiv preprint arXiv:2105.03588.
